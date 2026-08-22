@@ -55,7 +55,20 @@ void test_total_con_cantidad(void) {
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 /* TODO: escribir test_carrito_lleno() */
+void test_carrito_lleno(void) {
+    Carrito c;
+    carrito_init(&c);
 
+    Producto p = { "Producto", 100, 1 };
+
+    carrito_agregar(&c, p);
+    carrito_agregar(&c, p);
+    carrito_agregar(&c, p);
+    carrito_agregar(&c, p);
+
+    int resultado = carrito_agregar(&c, p);
+    ASSERT_IGUAL(0, resultado);
+}
 /* ═══════════════════════════════════════════════════════════════════════════
  *  main
  * ═══════════════════════════════════════════════════════════════════════════ */
@@ -64,10 +77,10 @@ int main(void) {
     printf("=== Tests unitarios ===");
     test_carrito_nuevo();
     test_agregar_uno();
-    /* Descomentar a medida que agregues las funciones: */
+    
     test_total_precio_unitario();
     test_total_con_cantidad();
-    /* test_carrito_lleno();         */
+    test_carrito_lleno();
     RESUMEN();
     return EXIT_CODE();
 }
