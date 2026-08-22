@@ -13,6 +13,7 @@
 
 /* TODO: escribir test_compra_con_descuento() siguiendo la guia del .md */
 
+
 /* ═══════════════════════════════════════════════════════════════════════════
  *  PARTE E — Disenar un test propio (ver README.md, Parte 9)
  * ═══════════════════════════════════════════════════════════════════════════ */
