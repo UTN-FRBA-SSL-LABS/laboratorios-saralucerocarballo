@@ -131,7 +131,7 @@ Mirá el código en `tests/test_unitarios.c` para entender la estructura de un t
 
 **P3** — ¿Qué hace `carrito_init` y por qué es importante llamarla antes de usar el carrito?
 
-> R:inicializa el carrito con un valor conocido (0), con el fin de 
+> R:inicializa el carrito con un valor conocido (0), con el fin de no arranque con basura.
 
 ---
 
@@ -195,7 +195,7 @@ Descomentá `/* test_total_con_cantidad(); */` en el `main()`, compilá y corré
 
 **P5** — ¿Este test pasa o falla? ¿Qué valor esperaba y qué obtuvo?
 
-> R: Falla
+> R: No falla, se esperaba y se obtuvo 700 
 
 ```
 TEST_TOTAL_CANTIDAD_PASA=NO
@@ -260,12 +260,12 @@ Si el test falló, encontraste el segundo bug. Buscá en `src/carrito.c` la cond
 
 **P9** — ¿Cuál es el operador incorrecto y cuál debería ser?
 
-> R:
+> R:Estaba <=, debería ser <
 
 Corregí el bug, volvé a compilar y verificá que todos los tests pasan.
 
 ```
-BUG_2_CORREGIDO=
+BUG_2_CORREGIDO=SI
 ```
 _(SI o NO)_
 
@@ -338,7 +338,7 @@ Las líneas con `#####` nunca se ejecutaron — no están cubiertas por los test
 
 **P10** — ¿Hay alguna línea de `carrito.c` con `#####`? ¿Cuál y por qué no se ejecutó?
 
-> R:
+> R:Sí, las de carrito_descuento, porque esa función solo se testea en el de integración.
 
 ```
 COBERTURA_COMPLETA=SI
@@ -351,7 +351,7 @@ _(SI si todas las líneas están cubiertas, NO si hay alguna con #####)_
 
 **P11** — ¿Qué diferencia hay entre un test unitario y uno de integración? ¿Cuál de los dos detectó primero el bug de `carrito_total`?
 
-> R:
+> R:Unitario prueba una función sola, integración prueba varias juntas. Lo encontró primero el unitario
 
 **P12** — El bug de capacidad en `carrito_agregar` causa un **buffer overflow**: se escribe más allá del array. ¿Por qué esto es peligroso en C pero no ocurriría en un lenguaje como Python o Java?
 
@@ -359,11 +359,11 @@ _(SI si todas las líneas están cubiertas, NO si hay alguna con #####)_
 
 **P13** — En este laboratorio encontraste los bugs escribiendo tests. ¿Qué tiene de mejor este enfoque frente a mirar el código directamente?
 
-> R:
+> R:A ojo se te pasan errores. Los tests los detectan siempre, las veces que quieras correrlos.
 
 **P14** — El test `test_total_precio_unitario` (cantidad = 1) **pasó** a pesar del bug, mientras que `test_total_con_cantidad` (cantidad = 2) **falló**. ¿Por qué el primer test no detectó el bug?
 
-> R:
+> R:Porque con cantidad=1 daba lo mismo multiplicar o no (350×1=350), pero con cantidad=2 sí se notaba la diferencia.
 
 ```
 BUG_EN_FUNCION_1=carrito_total
