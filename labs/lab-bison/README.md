@@ -1,6 +1,6 @@
 # Laboratorio: Introducción a Bison
 
-**Nombre:** ___________________________
+**Nombre:** Carballo Sara Lucero
 
 ## Verificación y calificación
 
@@ -157,7 +157,7 @@ Abrí `ejercicio3/parser3.y` y completá los cinco `TODO`:
 1. Declarar `%left '+' '-'` (menor precedencia)
 2. Declarar `%left '*' '/'` (mayor precedencia que suma/resta)
 3. Declarar `%right POW` (mayor precedencia que multiplicación)
-4. Declarar `%right UMINUS` (mayor precedencia de todas)
+4. Declarar `%right UMINUS` (mayor precedencia de todas) 
 5. Completar la acción de la regla de **menos unario**: `{ $$ = -$2; }`
 
 ### Cómo probar
@@ -168,7 +168,7 @@ bison -d parser3.y
 flex scanner3.l
 gcc lex.yy.c parser3.tab.c -o calc3 -lm
 ./calc3 < entrada.txt
-```
+``` 
 
 Salida esperada:
 ```
@@ -182,7 +182,7 @@ Salida esperada:
 
 ## Ejercicio 4 — Recuperación de errores (15 pts)
 
-### Contexto
+### Contexto 
 
 Sin manejo de errores, el primer token inesperado hace que `yyparse()` retorne con fallo y el resto de la entrada nunca se procesa.
 
@@ -224,21 +224,21 @@ Respondé cada pregunta reemplazando el espacio en blanco con la opción correct
 Opciones: `SHIFT` | `REDUCE` | `ERROR`
 
 ```
-P1=
+P1=SHIFT
 ```
 
 **P2** — ¿Las declaraciones `%left`/`%right` que aparecen **más abajo** en el archivo tienen mayor precedencia?
 Opciones: `SI` | `NO`
 
 ```
-P2=
+P2=SI
 ```
 
 **P3** — ¿`yyerrok` resetea el estado de error de Bison para que el parser pueda continuar normalmente después de una regla de recuperación?
 Opciones: `SI` | `NO`
 
 ```
-P3=
+P3=SI
 ```
 
 ---
