@@ -19,10 +19,10 @@ int main(void) {
     assert(IsEmpty("hola") == 0);
 
     /* ── GetLength — descomentar cuando implementes la funcion ──────────── */
-    /* assert(GetLength("") == 0); */
-    /* assert(GetLength("a") == 1); */
-    /* assert(GetLength("hola") == 4); */
-    /* assert(GetLength("hola mundo") == 10); */
+    assert(GetLength("") == 0);
+    assert(GetLength("a") == 1);
+    assert(GetLength("hola") == 4);
+    assert(GetLength("hola mundo") == 10);
 
     /* ── AreEqual — tiene un bug, estos tests ya estan activos ──────────── */
     assert(AreEqual("", "") == 1);
@@ -38,9 +38,12 @@ int main(void) {
     assert(AreDecimalDigits("") == 0);
 
     /* ── Contains — descomentar cuando implementes la funcion ───────────── */
-    /* assert(Contains("hola", 'o') == 1); */
-    /* assert(Contains("hola", 'z') == 0); */
-    /* assert(Contains("", 'a') == 0); */
+    assert(Contains("hola", 'o') == 1);
+    assert(Contains("hola", 'z') == 0); 
+    assert(Contains("", 'a') == 0);
+    assert(Contains("", 'a') == 0);       /* caso borde: cadena vacía */
+    assert(Contains("hola", 'h') == 1);   /* primer carácter */
+    assert(Contains("hola", '\0') == 0);  /* el terminador no es parte de la cadena */
 
     return 0;
 }
